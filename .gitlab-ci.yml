@@ -1,0 +1,74 @@
+image: node:latest
+
+cache:
+  paths:
+    - node_modules/
+
+Test:
+  script:
+    - rm -rf .specs
+    - git config --global user.email "jindal.swapnil2@gmail.com"
+    - git config --global user.name "Swapnil"
+    - git add . && git commit -m "Merged .specs deleted"
+    - git subtree add --prefix .specs/ https://workspace.konfinity.com/swapnil/css-v2-specs.git master
+    - npm install
+    - npm run test
+  only:
+    refs:
+      - master
+
+01typography:
+  script:
+    - npm install
+    - npm run test
+  only:
+    refs:
+      - 1-css-typography-tasks
+
+02grid-template:
+  script:
+    - npm install
+    - npm run test
+  only:
+    refs:
+      - 2-css-grid-template-tasks
+
+03grid-items:
+  script:
+    - npm install
+    - npm run test
+  only:
+    refs:
+      - 3-css-grid-items-tasks
+
+04practice:
+  script:
+    - npm install
+    - npm run test
+  only:
+    refs:
+      - 4-css-practice-tasks
+
+05grid-template-area:
+  script:
+    - npm install
+    - npm run test
+  only:
+    refs:
+      - 5-css-grid-template-areas-tests
+
+06savory:
+  script:
+    - npm install
+    - npm run test
+  only:
+    refs:
+      - 6-css-savory-directory-tasks
+
+07flexbox:
+  script:
+    - npm install
+    - npm run test
+  only:
+    refs:
+      - 7-css-flexbox-tasks
